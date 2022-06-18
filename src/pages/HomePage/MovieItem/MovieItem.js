@@ -1,37 +1,33 @@
 import { Card } from "antd";
 import moment from "moment";
 import { NavLink } from "react-router-dom";
+import "./MovieItem.scss";
 const { Meta } = Card;
 
 const MovieItem = ({ movie }) => {
   //   console.log(movie);
   return (
     <Card
+      id="MovieItem"
       hoverable
-      style={{
-        width: "100%",
-      }}
-      cover={
-        <img
-          alt="example"
-          src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-        />
-      }
+      cover={<img alt="img" src={movie.hinhAnh} />}
     >
       <Meta
         title={movie.tenPhim}
         description={
-          <span className="text-blue-600">
+          <span className="text-secondary">
             {moment(movie.ngayKhoiChieu).format("DD/MM/YYYY")}
           </span>
         }
       />
-      <NavLink
-        to={`detail/${movie.maPhim}`}
-        className="bg-green-600 rounded px-5 py-2 inline-block mt-5 hover:text-white"
-      >
-        Xem chi tiết
-      </NavLink>
+      <div className="mt-4 flex justify-center">
+        <NavLink
+          to={`detail/${movie.maPhim}`}
+          className="bg-primary text-white rounded px-5 py-2 inline-block hover:opacity-80 hover:text-white"
+        >
+          Xem chi tiết
+        </NavLink>
+      </div>
     </Card>
   );
 };

@@ -2,7 +2,6 @@ import _ from "lodash";
 import React, { useEffect, useState } from "react";
 import { movieService } from "../../services/movieService";
 import MovieCarousel from "./MovieCarousel/MovieCarousel";
-import "./homePage.css";
 import MovieTabs from "./MovieTabs/MovieTabs";
 
 export default function HomePage() {
@@ -18,8 +17,8 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div>
-      <div id="carousel_homepage" className="container mx-auto">
+    <div className="bg-color-background">
+      <div className="container mx-auto">
         <MovieCarousel chunkedList={movieList} />
       </div>
       <div className="container mx-auto py-20">

@@ -1,0 +1,26 @@
+
+
+#MovieItem.ant-card {
+    color: var(--color-white);
+    background: var(--color-background);
+    img {
+        height: 400px;
+        object-fit: cover;
+        object-position: center;
+    }
+    .ant-card-body {
+        padding: 12px;
+        .ant-card-meta-title {
+            color: var(--color-white);
+        }
+    }
+}
+
+#MovieItem.ant-card-bordered {
+    border: 1px solid transparent; 
+}
+
+#MovieItem.ant-card-hoverable:hover {
+    border: 1px solid #f0f0f0; 
+    box-shadow: 0 1px 2px -2px rgb(0 0 0 / 16%), 0 3px 6px 0 rgb(0 0 0 / 12%), 0 5px 12px 4px rgb(0 0 0 / 9%);
+}
