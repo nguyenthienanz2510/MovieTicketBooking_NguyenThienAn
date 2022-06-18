@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Lesson 39:
+
+- tao du an, cai dat thu vien: antd, axios, react-redux, react-router-dom, redux, tailwind
+- tao bo cuc du an, lam phan form login + register
+
+lesson 40:
+
+- dung chunksize lam phan rouseu hien thi danh sach phim
