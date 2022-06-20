@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useSelector } from "react-redux";
 import { localStorageService } from "../../services/localStorageService";
+import { Button, Tooltip } from "antd";
 
 export default function UserNav() {
   let userInfor = useSelector((state) => {
@@ -17,24 +18,28 @@ export default function UserNav() {
   return (
     <div>
       {userInfor ? (
-        <div className="px-3">
-          <span className="font-medium text-base ">{userInfor.hoTen}</span>
+        <div className="pt-6 md:pt-0 md:px-3 md:ml-auto md:block flex justify-between">
+          <span className="font-bold text-xl md:text-lg ">
+            {userInfor.hoTen}
+          </span>
           <button
             onClick={handleLogout}
-            className=" px-2 py-2 hover:text-primary transition-all"
+            className="px-3 md:py-2 hover:text-primary transition-all"
           >
-            <FontAwesomeIcon
-              className="text-base"
-              icon={faArrowRightFromBracket}
-            />
+            <Tooltip placement="bottomRight" title="Log out" color="#ff6500">
+              <FontAwesomeIcon
+                className="text-xl  md:text-base "
+                icon={faArrowRightFromBracket}
+              />
+            </Tooltip>
           </button>
         </div>
       ) : (
         <div className="px-3">
-          <button className="ml-1 px-5 py-2 rounded border-2 border-primary hover:text-white hover:bg-primary transition-all">
+          <button className="text-xl md:text-sm ml-1 px-5 py-2 rounded border-2 border-primary hover:text-white hover:bg-primary transition-all">
             Đăng ký
           </button>
-          <button className="ml-1 px-5 py-2 rounded border-2 border-primary hover:text-white hover:bg-primary transition-all">
+          <button className="text-xl md:text-sm ml-1 px-5 py-2 rounded border-2 border-primary hover:text-white hover:bg-primary transition-all">
             Đăng nhập
           </button>
         </div>

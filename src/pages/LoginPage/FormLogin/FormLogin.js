@@ -31,13 +31,14 @@ export default function FormLogin() {
   };
   return (
     <Form
+      className="px-24 w-full"
       name="basic"
       layout="vertical"
       labelCol={{
-        span: 8,
+        span: 24,
       }}
       wrapperCol={{
-        span: 16,
+        span: 24,
       }}
       initialValues={{
         remember: true,
@@ -72,7 +73,10 @@ export default function FormLogin() {
         <Input.Password />
       </Form.Item>
       <div className="text-center">
-        <Button className=" bg-blue-500 text-white rounded" htmlType="submit">
+        <Button
+          className="text-white bg-primary rounded hover:text-primary hover:bg-white px-5 hover:border-primary"
+          htmlType="submit"
+        >
           Login
         </Button>
       </div>

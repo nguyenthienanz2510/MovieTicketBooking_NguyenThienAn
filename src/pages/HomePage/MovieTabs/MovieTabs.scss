@@ -1,0 +1,18 @@
+#MovieTabs {
+    .ant-tabs {
+        color: var(--color-white);
+        .ant-tabs-tab {
+            &:hover {
+                color: var(--color-primary);
+            }
+        }
+    }
+    .ant-tabs-tab.ant-tabs-tab-active {
+        border-right: 3px solid var(--color-primary);
+        z-index: 1;
+        transition: all 0.5s;
+        .ant-tabs-tab-btn {
+            color: var(--color-primary);
+        }
+    }
+}

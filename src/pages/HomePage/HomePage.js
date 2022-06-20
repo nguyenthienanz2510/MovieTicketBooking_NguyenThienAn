@@ -11,17 +11,16 @@ export default function HomePage() {
       let result = await movieService.getMovieList();
       let chunkList = _.chunk(result.data.content, 8);
       setMovieList(chunkList);
-      console.log(chunkList);
     };
     fetchMovieList();
   }, []);
 
   return (
-    <div className="bg-color-background">
-      <div className="container mx-auto">
+    <div className="min-h-screen">
+      <div id="MovieCarousel-wrapper" className="container mx-auto">
         <MovieCarousel chunkedList={movieList} />
       </div>
-      <div className="container mx-auto py-20">
+      <div id="MovieTabs-wrapper" className="container mx-auto py-20">
         <MovieTabs />
       </div>
     </div>

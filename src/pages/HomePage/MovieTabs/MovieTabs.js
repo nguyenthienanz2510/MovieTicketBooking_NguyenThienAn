@@ -1,8 +1,8 @@
 import { Tabs } from "antd";
-import { info } from "autoprefixer";
 import { useEffect, useState } from "react";
 import { movieService } from "../../../services/movieService";
 import MovieTabItem from "./MovieTabItem";
+import "./MovieTabs.scss";
 
 const { TabPane } = Tabs;
 
@@ -30,21 +30,19 @@ export default function MovieTabs() {
           tab={<img src={heThongRap.logo} className="w-10 h-10" />}
           key={index}
         >
-          <Tabs tabPosition="left" defaultActiveKey="1">
+          <Tabs style={{ height: 680 }} tabPosition="left" defaultActiveKey="1">
             {heThongRap.lstCumRap.map((cumRap, index) => {
               return (
                 <TabPane
                   tab={
-                    <div className="w-60 whitespace-normal">
-                      <p className="text-lg text-blue-800 text-left">
-                        {cumRap.tenCumRap}
-                      </p>
+                    <div className="w-40 md:w-56 lg:w-96 whitespace-normal">
+                      <p className="text-lg  text-left">{cumRap.tenCumRap}</p>
                       <p className="text-left">{cumRap.diaChi}</p>
                     </div>
                   }
                   key={index}
                 >
-                  <div style={{ height: 500, overflow: "scroll" }}>
+                  <div style={{ height: 680, overflowY: "scroll" }}>
                     {cumRap.danhSachPhim.map((movie, index) => {
                       if (index < 20) {
                         return <MovieTabItem key={index} movie={movie} />;
@@ -60,16 +58,12 @@ export default function MovieTabs() {
     });
   };
   return (
-    <Tabs tabPosition="left" defaultActiveKey="1" onChange={onChange}>
-      {/* <TabPane tab="Tab 1" key="1">
-        Content of Tab Pane 1
-      </TabPane>
-      <TabPane tab="Tab 2" key="2">
-        Content of Tab Pane 2
-      </TabPane>
-      <TabPane tab="Tab 3" key="3">
-        Content of Tab Pane 3
-      </TabPane> */}
+    <Tabs
+      id="MovieTabs"
+      tabPosition="left"
+      defaultActiveKey="1"
+      onChange={onChange}
+    >
       {renderContent()}
     </Tabs>
   );
