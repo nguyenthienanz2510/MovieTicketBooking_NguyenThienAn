@@ -1,5 +1,6 @@
 import moment from "moment";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export default function MovieTabItem({ movie }) {
   // console.log("movie", movie);
@@ -15,16 +16,17 @@ export default function MovieTabItem({ movie }) {
           {movie.lstLichChieuTheoPhim.map((item, index) => {
             if (index < 6) {
               return (
-                <button
-                  style={{ minWidth: 188 }}
-                  key={index}
-                  onClick={() => {
-                    console.log("Dat ve nao ", item.ngayChieuGioChieu);
-                  }}
-                  className="w-full lg:w-auto mt-3 mr-3 px-5 py-2 border border-primary rounded hover:bg-primary"
-                >
-                  {moment(item.ngayChieuGioChieu).format("lll")}
-                </button>
+                <NavLink key={index} to={`booking/${item.maLichChieu}`}>
+                  <button
+                    style={{ minWidth: 188 }}
+                    onClick={() => {
+                      console.log("Dat ve nao ", item.ngayChieuGioChieu);
+                    }}
+                    className="w-full lg:w-auto mt-3 mr-3 px-5 py-2 border border-primary rounded hover:bg-primary"
+                  >
+                    {moment(item.ngayChieuGioChieu).format("lll")}
+                  </button>
+                </NavLink>
               );
             }
           })}

@@ -29,4 +29,14 @@ export const movieService = {
       }
     );
   },
+  getTicketList: (maLichChieu) => {
+    return axios.get(
+      `${BASE_URL}/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
+      {
+        headers: {
+          TokenCybersoft: TOKEN_CYBERSOFT,
+        },
+      }
+    );
+  },
 };

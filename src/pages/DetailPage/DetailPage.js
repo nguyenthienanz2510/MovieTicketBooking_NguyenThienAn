@@ -7,7 +7,7 @@ import { movieService } from "../../services/movieService";
 export default function DetailPage() {
   let { id } = useParams();
   const [movie, setMovie] = useState({});
-  console.log({ id, movie });
+  // console.log({ id, movie });
   useEffect(() => {
     movieService
       .getDetailMovie(id)
