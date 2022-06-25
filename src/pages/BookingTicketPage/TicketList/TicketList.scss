@@ -1,0 +1,26 @@
+.TicketItem {
+    width: 6.25%;
+    height: 54px;
+    display: inline-block;
+    .TicketBtn {
+        color: white;
+        font-weight: bold;
+        border: 3px solid var(--color-primary);
+        width: 44px;
+        height: 34px;
+        font-size: 14px;
+        margin-left: 2%;
+        margin-bottom: 1%;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+    .TicketBtn.disabled {
+        cursor: text;
+        &:hover {
+            color: var(--color-white);
+        }
+    }
+}

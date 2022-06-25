@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useSelector } from "react-redux";
 import { localStorageService } from "../../services/localStorageService";
-import { Button, Tooltip } from "antd";
+import { Tooltip } from "antd";
 
 export default function UserNav() {
   let userInfor = useSelector((state) => {
@@ -19,7 +19,7 @@ export default function UserNav() {
     <div>
       {userInfor ? (
         <div className="pt-6 md:pt-0 md:px-3 md:ml-auto md:block flex justify-between">
-          <span className="font-bold text-xl md:text-lg ">
+          <span className="font-medium text-xl md:text-lg ">
             {userInfor.hoTen}
           </span>
           <button

@@ -3,27 +3,40 @@ import { Button, Form, Input, message } from "antd";
 import { userService } from "../../../services/userService";
 import { localStorageService } from "../../../services/localStorageService";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUserInforActionService } from "../../../redux/actions/userAction";
 
 export default function FormLogin() {
   // xet thanh dieu huong URL
   let history = useHistory();
+  let dispatch = useDispatch();
   const onFinish = (values) => {
     console.log("Success:", values);
-    userService
-      .postLogin(values)
-      .then((res) => {
-        localStorageService.setUserInfo(res.data.content);
-        message.success("Dang Nhap Thanh Cong");
-        // chuyen trang khi login success
-        setTimeout(() => {
-          // history.push("/");
-          window.location.href = "/";
-        }, 1500);
-      })
-      .catch((err) => {
-        console.log("Error:", err);
-        message.error(err.response.data.message);
-      });
+    let onSuccess = () => {
+      message.success("Đăng nhập thành công");
+      setTimeout(() => {
+        history.push("/");
+      }, 1500);
+    };
+    let onFail = () => {
+      message.warning("Có biến rồi đại vương ơi");
+    };
+    dispatch(setUserInforActionService(values, onSuccess, onFail));
+    // userService
+    //   .postLogin(values)
+    //   .then((res) => {
+    //     localStorageService.setUserInfo(res.data.content);
+    //     message.success("Dang Nhap Thanh Cong");
+    //     // chuyen trang khi login success
+    //     setTimeout(() => {
+    //       // history.push("/");
+    //       window.location.href = "/";
+    //     }, 1500);
+    //   })
+    //   .catch((err) => {
+    //     console.log("Error:", err);
+    //     message.error(err.response.data.message);
+    //   });
   };
 
   const onFinishFailed = (errorInfo) => {

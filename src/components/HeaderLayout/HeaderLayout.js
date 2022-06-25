@@ -5,7 +5,7 @@ import UserNav from "./UserNav";
 
 export default function HeaderLayout() {
   return (
-    <div className="h-20 w-full flex items-center justify-between shadow-lg fixed z-50 bg-black">
+    <div className="h-20 w-full flex items-center justify-between shadow-lg fixed top-0 left-0 z-50 bg-black">
       <NavLink to={"/"}>
         <div className="flex">
           <img

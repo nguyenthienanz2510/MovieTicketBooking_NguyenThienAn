@@ -1,4 +1,4 @@
-#MovieCarousel {
+#MovieBanner {
     .ant-carousel .slick-dots li {
         width: 16px;
         height: 16px;
@@ -14,6 +14,9 @@
         background: var(--color-primary);
         opacity: 1;
     }
-
-}   
-
+    img {
+        width: var(--full-width);
+        height: calc(var(--full-width)*0.55);
+        max-height: 580px;
+    }
+}

@@ -16,7 +16,7 @@ export default function MovieTabs() {
     movieService
       .getMovieByTheater()
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setDataRaw(res.data.content);
       })
       .catch((err) => {

@@ -2,8 +2,15 @@ import axios from "axios";
 import { BASE_URL, TOKEN_CYBERSOFT } from "./configURL";
 
 export const movieService = {
+  getBannerList: () => {
+    return axios.get(`${BASE_URL}/api/QuanLyPhim/LayDanhSachBanner`, {
+      headers: {
+        TokenCybersoft: TOKEN_CYBERSOFT,
+      },
+    });
+  },
   getMovieList: () => {
-    return axios.get(`${BASE_URL}/api/QuanLyPhim/LayDanhSachPhim`, {
+    return axios.get(`${BASE_URL}/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP02`, {
       headers: {
         TokenCybersoft: TOKEN_CYBERSOFT,
       },
@@ -11,7 +18,7 @@ export const movieService = {
   },
   getMovieByTheater: () => {
     return axios.get(
-      `${BASE_URL}/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01`,
+      `${BASE_URL}/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP02`,
       {
         headers: {
           TokenCybersoft: TOKEN_CYBERSOFT,

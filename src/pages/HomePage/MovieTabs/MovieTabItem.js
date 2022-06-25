@@ -20,7 +20,7 @@ export default function MovieTabItem({ movie }) {
                   <button
                     style={{ minWidth: 188 }}
                     onClick={() => {
-                      console.log("Dat ve nao ", item.ngayChieuGioChieu);
+                      console.log("Dat ve nao ", item);
                     }}
                     className="w-full lg:w-auto mt-3 mr-3 px-5 py-2 border border-primary rounded hover:bg-primary"
                   >
