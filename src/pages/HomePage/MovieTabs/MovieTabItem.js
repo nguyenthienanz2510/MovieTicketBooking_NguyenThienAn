@@ -43,3 +43,27 @@ export default function MovieTabItem({ movie }) {
 //   "ngayChieuGioChieu": "2019-01-01T10:10:00",
 //   "giaVe": 75000
 // }
+
+// {
+//   "cumRapChieu": [
+//       {
+//           "lichChieuPhim": [
+//               {
+//                   "maLichChieu": "43016",
+//                   "maRap": "506",
+//                   "tenRap": "Rạp 6",
+//                   "ngayChieuGioChieu": "2021-05-04T01:23:17",
+//                   "giaVe": 75000,
+//                   "thoiLuong": 120
+//               }
+//           ],
+//           "maCumRap": "bhd-star-cineplex-vincom-thao-dien",
+//           "tenCumRap": "BHD Star Cineplex - Vincom Thảo Điền",
+//           "hinhAnh": "https://s3img.vcdn.vn/123phim/2021/01/bhd-star-bitexco-16105952137769.png",
+//           "diaChi": "L5-Megamall, 159 XL Hà Nội, Q.2"
+//       }
+//   ],
+//   "maHeThongRap": "BHDStar",
+//   "tenHeThongRap": "BHD Star Cineplex",
+//   "logo": "https://movienew.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png"
+// }

@@ -46,4 +46,14 @@ export const movieService = {
       }
     );
   },
+  getDetailMovieSchedule: (maPhim) => {
+    return axios.get(
+      `${BASE_URL}/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`,
+      {
+        headers: {
+          TokenCybersoft: TOKEN_CYBERSOFT,
+        },
+      }
+    );
+  },
 };

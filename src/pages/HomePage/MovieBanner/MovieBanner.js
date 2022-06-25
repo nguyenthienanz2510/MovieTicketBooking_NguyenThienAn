@@ -10,7 +10,7 @@ export default function MovieBanner() {
     let FetchMovieBanner = async () => {
       try {
         let result = await movieService.getBannerList();
-        console.log(result.data.content);
+        // console.log(result.data.content);
         setBannerList(result.data.content);
       } catch (error) {
         console.log(error);

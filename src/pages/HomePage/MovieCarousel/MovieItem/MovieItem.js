@@ -5,7 +5,7 @@ import "./MovieItem.scss";
 const { Meta } = Card;
 
 const MovieItem = ({ movie }) => {
-  console.log(movie);
+  // console.log(movie);
   return (
     <Card
       id="MovieItem"

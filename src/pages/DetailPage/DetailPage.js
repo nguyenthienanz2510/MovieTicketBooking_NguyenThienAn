@@ -3,6 +3,7 @@ import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { movieService } from "../../services/movieService";
+import DetailMovieSchedule from "./DetailMovieSchedule/DetailMovieSchedule";
 
 export default function DetailPage() {
   let { id } = useParams();
@@ -12,7 +13,7 @@ export default function DetailPage() {
     movieService
       .getDetailMovie(id)
       .then((res) => {
-        console.log(res);
+        // console.log("getDetailMovie", res.data.content);
         setMovie(res.data.content);
       })
       .catch((err) => {
@@ -63,6 +64,9 @@ export default function DetailPage() {
             height="500px"
             src={movie.trailer}
           ></iframe>
+        </div>
+        <div>
+          <DetailMovieSchedule />
         </div>
       </div>
     </div>

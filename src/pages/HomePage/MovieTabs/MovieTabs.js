@@ -23,6 +23,7 @@ export default function MovieTabs() {
         console.log(err);
       });
   }, []);
+  console.log(dataRaw);
   let renderContent = () => {
     return dataRaw.map((heThongRap, index) => {
       return (
