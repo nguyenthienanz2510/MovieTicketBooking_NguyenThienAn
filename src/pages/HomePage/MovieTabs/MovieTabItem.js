@@ -7,28 +7,33 @@ export default function MovieTabItem({ movie }) {
   return (
     <div
       style={{ minHeight: 180 }}
-      className="lg:flex p-5 lg:space-x-5 border-b border-gray-300 mr-5"
+      className="lg:flex py-6 sm:px-5 sm:py-6 lg:space-x-5 border-b border-gray-300 mr-5"
     >
-      <img className="lg:w-24 object-contain" src={movie.hinhAnh} alt="img" />
+      {/* <div className=""> */}
+      <img
+        className="lg:w-40 object-top object-contain"
+        src={movie.hinhAnh}
+        alt="img"
+      />
+      {/* </div> */}
       <div>
         <p className="font-medium text-lg mt-2">{movie.tenPhim}</p>
         <div>
           {movie.lstLichChieuTheoPhim.map((item, index) => {
-            if (index < 6) {
-              return (
-                <NavLink key={index} to={`booking/${item.maLichChieu}`}>
-                  <button
-                    style={{ minWidth: 188 }}
-                    onClick={() => {
-                      console.log("Dat ve nao ", item);
-                    }}
-                    className="w-full lg:w-auto mt-3 mr-3 px-5 py-2 border border-primary rounded hover:bg-primary"
-                  >
-                    {moment(item.ngayChieuGioChieu).format("lll")}
-                  </button>
-                </NavLink>
-              );
-            }
+            // if (index < 6) {
+            return (
+              <NavLink key={index} to={`booking/${item.maLichChieu}`}>
+                <button
+                  onClick={() => {
+                    console.log("Dat ve nao ", item);
+                  }}
+                  className="sm:min-w-[188px] w-full lg:w-auto mt-3 sm:mr-3 px-1 sm:px-5 py-2 border border-primary rounded hover:bg-primary"
+                >
+                  {moment(item.ngayChieuGioChieu).format("lll")}
+                </button>
+              </NavLink>
+            );
+            // }
           })}
         </div>
       </div>

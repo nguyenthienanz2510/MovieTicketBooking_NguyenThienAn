@@ -21,22 +21,22 @@ export default function DetailPage() {
       });
   }, [id]);
   return (
-    <div className="pt-40 pb-12 space-y-10 bg-color-background min-h-screen">
+    <div className="pt-20 sm:pt-40 pb-12 space-y-10 bg-color-background min-h-screen">
       <div className="container mx-auto ">
         <div className="lg:flex justify-between">
-          <div className="flex">
+          <div className="flex flex-col sm:flex-row ">
             <img
               src={movie.hinhAnh}
-              className="w-1/2 lg:w-96 rounded"
+              className="w-full sm:w-1/2 lg:w-96 rounded"
               alt="img"
             />
-            <div className="w-1/2 lg:w-1/2 pl-8">
+            <div className="w-full sm:w-1/2 lg:w-1/2 px-2 pt-5 sm:pl-8">
               <p className="text-3xl font-medium">{movie.tenPhim}</p>
-              <p className="text-base my-4">
+              <p className="text-base my-4 text-justify">
                 Ngày khởi chiếu:{" "}
                 {moment(movie.ngayKhoiChieu).format("DD/MM/YYYY")}
               </p>
-              <p className="text-base">{movie.moTa}</p>
+              <p className="text-base text-justify">{movie.moTa}</p>
             </div>
           </div>
           <div className="flex justify-center pt-10">
@@ -57,11 +57,11 @@ export default function DetailPage() {
             />
           </div>
         </div>
-        <div className="w-full h-auto py-20">
+        <div className="w-full py-20">
           <iframe
-            className="mx-auto"
-            width="90%"
-            height="500px"
+            className="mx-auto w-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"
+            // width="100%"
+            // height="600px"
             src={movie.trailer}
           ></iframe>
         </div>

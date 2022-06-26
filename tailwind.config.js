@@ -11,6 +11,9 @@ module.exports = {
         "color-black": "black",
         "color-white": "white",
       },
+      height: {
+        100: "28rem",
+      },
     },
   },
   plugins: [],

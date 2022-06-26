@@ -10,7 +10,13 @@ const MovieItem = ({ movie }) => {
     <Card
       id="MovieItem"
       hoverable
-      cover={<img alt="img" src={movie.hinhAnh} />}
+      cover={
+        <img
+          className="h-96 md:h-72 lg:h-96 xl:h-100"
+          alt="img"
+          src={movie.hinhAnh}
+        />
+      }
     >
       <Meta
         title={movie.tenPhim}

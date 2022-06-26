@@ -36,7 +36,7 @@ export default function MovieTabs() {
               return (
                 <TabPane
                   tab={
-                    <div className="w-40 md:w-56 lg:w-96 whitespace-normal">
+                    <div className="w-28 sm:w-40 md:w-56 lg:w-96 whitespace-normal">
                       <p className="text-lg  text-left">{cumRap.tenCumRap}</p>
                       <p className="text-left">{cumRap.diaChi}</p>
                     </div>

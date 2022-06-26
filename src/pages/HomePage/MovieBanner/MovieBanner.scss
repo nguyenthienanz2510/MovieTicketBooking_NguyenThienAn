@@ -15,8 +15,8 @@
         opacity: 1;
     }
     img {
-        width: var(--full-width);
-        height: calc(var(--full-width)*0.55);
-        max-height: 580px;
+        width: var(--screen-width);
+        height: calc(var(--screen-width)*0.55);
+        max-height: 640px;
     }
 }

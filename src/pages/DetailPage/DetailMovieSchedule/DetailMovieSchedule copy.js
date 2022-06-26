@@ -32,7 +32,7 @@ export default function DetailMovieSchedule() {
               return (
                 <TabPane
                   tab={
-                    <div className="w-28 sm:w-40 md:w-56 lg:w-96 whitespace-normal">
+                    <div className="w-40 md:w-56 lg:w-96 whitespace-normal">
                       <p className="text-lg  text-left">{cumRap.tenCumRap}</p>
                       <p className="text-left">{cumRap.diaChi}</p>
                     </div>
@@ -43,7 +43,7 @@ export default function DetailMovieSchedule() {
                     style={{
                       height: 680,
                       overflowY: "scroll",
-                      paddingRight: "20px",
+                      paddingRight: 20,
                     }}
                   >
                     {cumRap.lichChieuPhim.map((item, index) => {
@@ -53,10 +53,11 @@ export default function DetailMovieSchedule() {
                           to={`/booking/${item.maLichChieu}`}
                         >
                           <button
+                            style={{ minWidth: 188 }}
                             onClick={() => {
                               console.log("Dat ve nao ", item);
                             }}
-                            className="sm:min-w-[188px] w-full lg:w-auto mt-3 px-1 sm:px-5 py-2 border border-primary rounded hover:bg-primary"
+                            className="w-full lg:w-auto m-2 px-5 py-2 border border-primary rounded hover:bg-primary"
                           >
                             {moment(item.ngayChieuGioChieu).format("lll")}
                           </button>
@@ -76,13 +77,15 @@ export default function DetailMovieSchedule() {
     console.log("[movieSchedulekey]", key);
   };
   return (
-    <Tabs
-      id="MovieTabs"
-      tabPosition="left"
-      defaultActiveKey="1"
-      onChange={onChange}
-    >
-      {!!movieSchedule ? renderContent() : null}
-    </Tabs>
+    <div className="MovieTabs-wrapper">
+      <Tabs
+        id="MovieTabs"
+        tabPosition="left"
+        defaultActiveKey="1"
+        onChange={onChange}
+      >
+        {!!movieSchedule ? renderContent() : null}
+      </Tabs>
+    </div>
   );
 }
