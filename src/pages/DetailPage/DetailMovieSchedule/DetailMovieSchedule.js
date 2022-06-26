@@ -56,7 +56,7 @@ export default function DetailMovieSchedule() {
                             onClick={() => {
                               console.log("Dat ve nao ", item);
                             }}
-                            className="sm:min-w-[188px] w-full lg:w-auto mt-3 px-1 sm:px-5 py-2 border border-primary rounded hover:bg-primary"
+                            className="sm:min-w-[188px] w-full mr-0 lg:mr-3 lg:w-auto mt-3 px-1 sm:px-5 py-2 border border-primary rounded hover:bg-primary"
                           >
                             {moment(item.ngayChieuGioChieu).format("lll")}
                           </button>

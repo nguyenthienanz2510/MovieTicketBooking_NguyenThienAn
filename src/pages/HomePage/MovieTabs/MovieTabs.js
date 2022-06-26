@@ -45,9 +45,9 @@ export default function MovieTabs() {
                 >
                   <div style={{ height: 680, overflowY: "scroll" }}>
                     {cumRap.danhSachPhim.map((movie, index) => {
-                      if (index < 20) {
-                        return <MovieTabItem key={index} movie={movie} />;
-                      }
+                      // if (index < 20) {
+                      return <MovieTabItem key={index} movie={movie} />;
+                      // }
                     })}
                   </div>
                 </TabPane>

@@ -4,17 +4,19 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { localStorageService } from "../../services/localStorageService";
 import { Tooltip } from "antd";
+import { NavLink } from "react-router-dom";
 
 export default function UserNav() {
   let userInfor = useSelector((state) => {
     return state.userReducer.userInfor;
   });
-  // console.log(userInfor);
+  console.log(userInfor);
   // let dispatch = useDispatch();
   let handleLogout = () => {
     localStorageService.removeUserInfor();
     window.location.href = "/login";
   };
+  let handleLogoin = () => {};
   return (
     <div>
       {userInfor ? (
@@ -39,9 +41,11 @@ export default function UserNav() {
           <button className="text-xl md:text-sm ml-1 px-5 py-2 rounded border-2 border-primary hover:text-white hover:bg-primary transition-all">
             Đăng ký
           </button>
-          <button className="text-xl md:text-sm ml-1 px-5 py-2 rounded border-2 border-primary hover:text-white hover:bg-primary transition-all">
-            Đăng nhập
-          </button>
+          <NavLink to={"/login"}>
+            <button className="text-xl md:text-sm ml-1 px-5 py-2 rounded border-2 border-primary hover:text-white hover:bg-primary transition-all">
+              Đăng nhập
+            </button>
+          </NavLink>
         </div>
       )}
     </div>

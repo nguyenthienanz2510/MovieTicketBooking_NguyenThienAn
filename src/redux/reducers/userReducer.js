@@ -9,6 +9,7 @@ export const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USER_INFO: {
       state.userInfor = action.payload;
+      localStorageService.setUserInfo(action.payload);
     }
     default:
       return state;
