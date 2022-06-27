@@ -1,15 +1,96 @@
-import { useState } from "react";
+import { isValidInputTimeValue } from "@testing-library/user-event/dist/utils";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { bookingTicketService } from "../../../services/bookingTicketService";
 import "./TicketList.scss";
 
-export default function TicketList({ danhSachGhe }) {
-  console.log(danhSachGhe);
+export default function TicketList({
+  danhSachGhe,
+  submitBooking,
+  doneSubmitBooking,
+}) {
+  // console.log(danhSachGhe);
+  console.log(submitBooking);
+
+  let { id } = useParams();
+
   const [ticketSelecting, setticketSelecting] = useState({});
+  const [ticketBooking, setTicketBooking] = useState({
+    // maLichChieu: 0,
+    // danhSachVe: [
+    //   {
+    //     maGhe: 0,
+    //     giaVe: 0,
+    //   },
+    // ],
+  });
+
+  useEffect(() => {
+    // console.log("update");
+    bookingTicketService
+      .postBookingTicket(ticketBooking)
+      .then((res) => {
+        console.log(res);
+        doneSubmitBooking();
+      })
+      .catch((err) => {
+        console.log(err);
+        doneSubmitBooking();
+      });
+  }, [submitBooking]);
+
+  const bookingTicket = (item) => {
+    if (!!ticketBooking.danhSachVe) {
+      setTicketBooking({
+        maLichChieu: id,
+        danhSachVe: [
+          ...ticketBooking.danhSachVe,
+          {
+            maGhe: item.maGhe,
+            giaVe: item.giaVe,
+          },
+        ],
+      });
+    } else {
+      setTicketBooking({
+        maLichChieu: id,
+        danhSachVe: [
+          {
+            maGhe: item.maGhe,
+            giaVe: item.giaVe,
+          },
+        ],
+      });
+    }
+  };
+  // console.log(!!ticketBooking.danhSachVe);
+  console.log(ticketBooking);
+
   const renderTheoLoaiGhe = (item) => {
     // console.log(item.loaiGhe);
     if (item.loaiGhe === "Vip") {
-      return <button className="TicketBtn bg-yellow-500">{item.stt}</button>;
+      return (
+        <button
+          onClick={() => {
+            bookingTicket(item);
+          }}
+          className="TicketBtn bg-yellow-500"
+        >
+          {item.stt}
+        </button>
+      );
     } else {
-      return <button className="TicketBtn">{item.stt}</button>;
+      return (
+        <button
+          onClick={() => {
+            bookingTicket(item);
+          }}
+          className="TicketBtn"
+        >
+          {item.stt}
+        </button>
+      );
     }
   };
   return (

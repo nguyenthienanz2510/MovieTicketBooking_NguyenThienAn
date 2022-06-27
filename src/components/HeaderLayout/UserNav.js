@@ -10,7 +10,7 @@ export default function UserNav() {
   let userInfor = useSelector((state) => {
     return state.userReducer.userInfor;
   });
-  console.log(userInfor);
+  // console.log(userInfor);
   // let dispatch = useDispatch();
   let handleLogout = () => {
     localStorageService.removeUserInfor();

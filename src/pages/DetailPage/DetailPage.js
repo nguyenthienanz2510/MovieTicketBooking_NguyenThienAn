@@ -13,7 +13,7 @@ export default function DetailPage() {
     movieService
       .getDetailMovie(id)
       .then((res) => {
-        // console.log("getDetailMovie", res.data.content);
+        console.log("getDetailMovie", res.data.content);
         setMovie(res.data.content);
       })
       .catch((err) => {
@@ -58,12 +58,7 @@ export default function DetailPage() {
           </div>
         </div>
         <div className="w-full py-20">
-          <iframe
-            className="mx-auto w-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"
-            // width="100%"
-            // height="600px"
-            src={movie.trailer}
-          ></iframe>
+          <iframe className="mx-auto w-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"></iframe>
         </div>
         <div>
           <DetailMovieSchedule />

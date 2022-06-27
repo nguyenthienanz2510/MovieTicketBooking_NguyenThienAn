@@ -11,7 +11,7 @@ export default function MovieTabItem({ movie }) {
     >
       {/* <div className=""> */}
       <img
-        className="lg:w-40 object-top object-contain"
+        className="lg:w-40 object-top object-contain rounded"
         src={movie.hinhAnh}
         alt="img"
       />
@@ -27,7 +27,7 @@ export default function MovieTabItem({ movie }) {
                   onClick={() => {
                     console.log("Dat ve nao ", item);
                   }}
-                  className="sm:min-w-[188px] w-full lg:w-auto mt-3 sm:mr-3 px-1 sm:px-5 py-2 border border-primary rounded hover:bg-primary"
+                  className="sm:min-w-[188px] w-full lg:w-auto mt-3 sm:mr-3 px-1 sm:px-5 py-2 border border-primary rounded hover:bg-primary hover:text-white"
                 >
                   {moment(item.ngayChieuGioChieu).format("lll")}
                 </button>

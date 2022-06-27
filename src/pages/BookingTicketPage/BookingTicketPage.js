@@ -6,18 +6,25 @@ import TicketList from "./TicketList/TicketList";
 export default function BookingTicketPage() {
   let { id } = useParams();
   const [movie, setMovie] = useState({});
+  const [submitBooking, setSubmitBooking] = useState(false);
   console.log(movie);
   useEffect(() => {
     movieService
       .getTicketList(id)
       .then((res) => {
-        // console.log("booking", res);
+        // console.log("booking", res.data.content.danhSachGhe);
         setMovie(res.data.content);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [id]);
+  }, [id, submitBooking]);
+  const onSubmitBooking = () => {
+    setSubmitBooking(true);
+  };
+  const doneSubmitBooking = () => {
+    setSubmitBooking(false);
+  };
   let isValid = !!movie.thongTinPhim;
   if (isValid) {
     return (
@@ -28,7 +35,11 @@ export default function BookingTicketPage() {
               <span className="mx-auto font-medium text-2xl">Màn hình</span>
             </div>
             <div>
-              <TicketList danhSachGhe={movie.danhSachGhe} />
+              <TicketList
+                danhSachGhe={movie.danhSachGhe}
+                submitBooking={submitBooking}
+                doneSubmitBooking={doneSubmitBooking}
+              />
             </div>
           </div>
           <div className="col-span-12 lg:col-span-4">
@@ -74,6 +85,7 @@ export default function BookingTicketPage() {
                 <button
                   onClick={() => {
                     console.log("Dat ve nao");
+                    onSubmitBooking();
                   }}
                   className="my-5 px-10 py-3 border rounded border-primary bg-primary hover:opacity-90 text-xl font-bold"
                 >

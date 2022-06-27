@@ -14,7 +14,7 @@ const MovieCarousel = () => {
   useEffect(() => {
     let fetchMovieList = async () => {
       let result = await movieService.getMovieList();
-      console.log(result);
+      // console.log(result);
       let chunkList = _.chunk(result.data.content, 8);
       setMovieList(chunkList);
     };
