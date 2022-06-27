@@ -14,7 +14,7 @@
         border-radius: 5px;
         cursor: pointer;
         &:hover {
-            color: var(--color-primary);
+            opacity: 0.85;
         }
     }
     .TicketBtn.disabled {

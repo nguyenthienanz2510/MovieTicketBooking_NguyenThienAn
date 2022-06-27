@@ -15,7 +15,6 @@ export default function TicketList({
 
   let { id } = useParams();
 
-  const [ticketSelecting, setticketSelecting] = useState({});
   const [ticketBooking, setTicketBooking] = useState({
     // maLichChieu: 0,
     // danhSachVe: [
@@ -40,18 +39,41 @@ export default function TicketList({
       });
   }, [submitBooking]);
 
-  const bookingTicket = (item) => {
+  const bookingTicket = (event, item) => {
+    console.log(event.target);
+    if (
+      event.target.classList === "TicketBtn" ||
+      event.target.classList === "TicketBtn bg-yellow-500"
+    ) {
+      event.target.classList.add("bg-orange-500");
+    } else {
+      event.target.classList.remove("bg-orange-500");
+    }
     if (!!ticketBooking.danhSachVe) {
-      setTicketBooking({
-        maLichChieu: id,
-        danhSachVe: [
-          ...ticketBooking.danhSachVe,
-          {
-            maGhe: item.maGhe,
-            giaVe: item.giaVe,
-          },
-        ],
+      let index = ticketBooking.danhSachVe.findIndex((ticket) => {
+        return ticket.maGhe === item.maGhe;
       });
+      console.log(index);
+
+      if (index === -1) {
+        setTicketBooking({
+          maLichChieu: id,
+          danhSachVe: [
+            ...ticketBooking.danhSachVe,
+            {
+              maGhe: item.maGhe,
+              giaVe: item.giaVe,
+            },
+          ],
+        });
+      } else {
+        let cloneDanhSachVe = [...ticketBooking.danhSachVe];
+        cloneDanhSachVe.splice(index, 1);
+        setTicketBooking({
+          maLichChieu: id,
+          danhSachVe: cloneDanhSachVe,
+        });
+      }
     } else {
       setTicketBooking({
         maLichChieu: id,
@@ -72,8 +94,8 @@ export default function TicketList({
     if (item.loaiGhe === "Vip") {
       return (
         <button
-          onClick={() => {
-            bookingTicket(item);
+          onClick={(event) => {
+            bookingTicket(event, item);
           }}
           className="TicketBtn bg-yellow-500"
         >
@@ -83,8 +105,8 @@ export default function TicketList({
     } else {
       return (
         <button
-          onClick={() => {
-            bookingTicket(item);
+          onClick={(event) => {
+            bookingTicket(event, item);
           }}
           className="TicketBtn"
         >
