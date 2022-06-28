@@ -4,14 +4,21 @@ import "./MovieCarousel.scss";
 import _ from "lodash";
 import { useEffect, useState } from "react";
 import { movieService } from "../../../services/movieService";
+import { useDispatch } from "react-redux";
+import {
+  handleEndSpinner,
+  handleStartSpinner,
+} from "../../../redux/actions/spinnerComponentAction";
 
 const MovieCarousel = () => {
+  let dispatch = useDispatch();
   const onChange = (currentSlide) => {
     console.log(currentSlide);
   };
 
   const [movieList, setMovieList] = useState([]);
   useEffect(() => {
+    dispatch(handleStartSpinner());
     let fetchMovieList = async () => {
       let result = await movieService.getMovieList();
       // console.log(result);
@@ -19,6 +26,7 @@ const MovieCarousel = () => {
       setMovieList(chunkList);
     };
     fetchMovieList();
+    dispatch(handleEndSpinner());
   }, []);
 
   return (

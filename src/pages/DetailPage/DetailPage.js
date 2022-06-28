@@ -2,22 +2,32 @@ import { Progress } from "antd";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import {
+  handleEndSpinner,
+  handleStartSpinner,
+} from "../../redux/actions/spinnerComponentAction";
 import { movieService } from "../../services/movieService";
 import DetailMovieSchedule from "./DetailMovieSchedule/DetailMovieSchedule";
+import { useDispatch } from "react-redux";
 
 export default function DetailPage() {
   let { id } = useParams();
+  let dispatch = useDispatch();
   const [movie, setMovie] = useState({});
   // console.log({ id, movie });
   useEffect(() => {
+    dispatch(handleStartSpinner());
+
     movieService
       .getDetailMovie(id)
       .then((res) => {
         console.log("getDetailMovie", res.data.content);
         setMovie(res.data.content);
+        dispatch(handleEndSpinner());
       })
       .catch((err) => {
         console.log(err);
+        dispatch(handleEndSpinner());
       });
   }, [id]);
   return (

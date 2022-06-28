@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { bookingTicketReducer } from "./bookingTicketReducer";
+import { spinnerComponentReducer } from "./spinnerComponentReducer";
 import { userReducer } from "./userReducer";
 
 export const rootReducer = combineReducers({
   userReducer: userReducer,
-  bookingTicketReducer: bookingTicketReducer,
+  spinnerComponentReducer: spinnerComponentReducer,
 });

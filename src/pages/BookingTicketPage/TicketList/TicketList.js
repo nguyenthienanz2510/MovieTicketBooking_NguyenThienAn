@@ -1,49 +1,18 @@
-import { isValidInputTimeValue } from "@testing-library/user-event/dist/utils";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { bookingTicketService } from "../../../services/bookingTicketService";
 import "./TicketList.scss";
 
 export default function TicketList({
   danhSachGhe,
-  submitBooking,
-  doneSubmitBooking,
+  ticketBooking,
+  setTicketBooking,
 }) {
-  // console.log(danhSachGhe);
-  console.log(submitBooking);
-
   let { id } = useParams();
 
-  const [ticketBooking, setTicketBooking] = useState({
-    // maLichChieu: 0,
-    // danhSachVe: [
-    //   {
-    //     maGhe: 0,
-    //     giaVe: 0,
-    //   },
-    // ],
-  });
-
-  useEffect(() => {
-    // console.log("update");
-    bookingTicketService
-      .postBookingTicket(ticketBooking)
-      .then((res) => {
-        console.log(res);
-        doneSubmitBooking();
-      })
-      .catch((err) => {
-        console.log(err);
-        doneSubmitBooking();
-      });
-  }, [submitBooking]);
-
   const bookingTicket = (event, item) => {
-    console.log(event.target);
+    // console.log(event.target);
     if (
-      event.target.classList === "TicketBtn" ||
-      event.target.classList === "TicketBtn bg-yellow-500"
+      event.target.classList == "TicketBtn" ||
+      event.target.classList == "TicketBtn bg-yellow-500"
     ) {
       event.target.classList.add("bg-orange-500");
     } else {
@@ -53,7 +22,7 @@ export default function TicketList({
       let index = ticketBooking.danhSachVe.findIndex((ticket) => {
         return ticket.maGhe === item.maGhe;
       });
-      console.log(index);
+      // console.log(index);
 
       if (index === -1) {
         setTicketBooking({
@@ -87,7 +56,7 @@ export default function TicketList({
     }
   };
   // console.log(!!ticketBooking.danhSachVe);
-  console.log(ticketBooking);
+  // console.log(ticketBooking);
 
   const renderTheoLoaiGhe = (item) => {
     // console.log(item.loaiGhe);

@@ -1,26 +1,37 @@
 import { Tabs } from "antd";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  handleEndSpinner,
+  handleStartSpinner,
+} from "../../../redux/actions/spinnerComponentAction";
 import { movieService } from "../../../services/movieService";
 import MovieTabItem from "./MovieTabItem";
 import "./MovieTabs.scss";
 
 const { TabPane } = Tabs;
 
-const onChange = (key) => {
-  console.log(key);
-};
-
 export default function MovieTabs() {
   const [dataRaw, setDataRaw] = useState([]);
+
+  let dispatch = useDispatch();
+
+  const onChange = (key) => {
+    console.log(key);
+  };
   useEffect(() => {
+    dispatch(handleStartSpinner());
+
     movieService
       .getMovieByTheater()
       .then((res) => {
         // console.log(res);
         setDataRaw(res.data.content);
+        dispatch(handleEndSpinner());
       })
       .catch((err) => {
         console.log(err);
+        dispatch(handleEndSpinner());
       });
   }, []);
   // console.log(dataRaw);

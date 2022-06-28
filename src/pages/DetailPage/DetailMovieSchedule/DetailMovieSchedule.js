@@ -1,25 +1,34 @@
 import { Tabs } from "antd";
 import moment from "moment";
+import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { movieService } from "../../../services/movieService";
+import {
+  handleEndSpinner,
+  handleStartSpinner,
+} from "../../../redux/actions/spinnerComponentAction";
 const { TabPane } = Tabs;
 
 export default function DetailMovieSchedule() {
   let { id } = useParams();
+  let dispatch = useDispatch();
   const [movieSchedule, setMovieSchedule] = useState(null);
   useEffect(() => {
+    dispatch(handleStartSpinner());
     movieService
       .getDetailMovieSchedule(id)
       .then((res) => {
         console.log("getDetailMovieSchedule", res.data.content);
         setMovieSchedule(res.data.content.heThongRapChieu);
+        dispatch(handleEndSpinner());
       })
       .catch((err) => {
         console.log(err);
+        dispatch(handleEndSpinner());
       });
   }, [id]);
-  console.log(movieSchedule);
+  // console.log(movieSchedule);
   let renderContent = () => {
     return movieSchedule.map((heThongRap, index) => {
       return (

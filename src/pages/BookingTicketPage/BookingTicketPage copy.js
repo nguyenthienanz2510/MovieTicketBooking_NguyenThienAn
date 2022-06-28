@@ -1,11 +1,9 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { bookingTicketService } from "../../services/bookingTicketService";
 import { movieService } from "../../services/movieService";
 import TicketList from "./TicketList/TicketList";
 import { useDispatch } from "react-redux/es/exports";
-import { Button, Modal } from "antd";
-import Draggable from "react-draggable";
 import {
   handleEndSpinner,
   handleStartSpinner,
@@ -17,45 +15,7 @@ export default function BookingTicketPage() {
   const [submitBooking, setSubmitBooking] = useState(false);
   const [ticketBooking, setTicketBooking] = useState({});
   let dispatch = useDispatch();
-  const draggleRef = useRef(null);
 
-  const showModal = () => {
-    setVisible(true);
-  };
-
-  const handleOk = (e) => {
-    // console.log(e);
-    setVisible(false);
-  };
-
-  const handleCancel = (e) => {
-    // console.log(e);
-    setVisible(false);
-  };
-
-  const onStart = (_event, uiData) => {
-    const { clientWidth, clientHeight } = window.document.documentElement;
-    const targetRect = draggleRef.current?.getBoundingClientRect();
-
-    if (!targetRect) {
-      return;
-    }
-
-    setBounds({
-      left: -targetRect.left + uiData.x,
-      right: clientWidth - (targetRect.right - uiData.x),
-      top: -targetRect.top + uiData.y,
-      bottom: clientHeight - (targetRect.bottom - uiData.y),
-    });
-  };
-  const [visible, setVisible] = useState(false);
-  const [disabled, setDisabled] = useState(false);
-  const [bounds, setBounds] = useState({
-    left: 0,
-    top: 0,
-    bottom: 0,
-    right: 0,
-  });
   // useEffect(() => {
   //   bookingTicketService
   //     .postBookingTicket(ticketBooking)
@@ -95,9 +55,6 @@ export default function BookingTicketPage() {
         setTicketBooking({});
         doneSubmitBooking();
         dispatch(handleEndSpinner());
-        setTimeout(() => {
-          showModal();
-        }, 1500);
       })
       .catch((err) => {
         console.log(err);
@@ -199,62 +156,16 @@ export default function BookingTicketPage() {
                 <span>{renderTotalPrice()}</span> VND
               </p>
               <div className="text-center">
-                {ticketBooking.danhSachVe &&
-                ticketBooking.danhSachVe.length > 0 ? (
-                  <button
-                    onClick={() => {
-                      console.log("Dat ve nao");
-                      onSubmitBooking();
-                    }}
-                    className="my-5 px-10 py-3 border rounded border-primary bg-primary hover:opacity-90 text-xl font-bold"
-                  >
-                    ĐẶT VÉ
-                  </button>
-                ) : (
-                  <button className="my-5 px-10 py-3 border rounded border-primary bg-primary text-xl font-bold opacity-40 cursor-text">
-                    ĐẶT VÉ
-                  </button>
-                )}
+                <button
+                  onClick={() => {
+                    console.log("Dat ve nao");
+                    onSubmitBooking();
+                  }}
+                  className="my-5 px-10 py-3 border rounded border-primary bg-primary hover:opacity-90 text-xl font-bold"
+                >
+                  ĐẶT VÉ
+                </button>
               </div>
-              <Modal
-                title={
-                  <div
-                    style={{
-                      width: "100%",
-                      cursor: "move",
-                      color: "var(--color-primary)",
-                      fontSize: "20px",
-                    }}
-                    onMouseOver={() => {
-                      if (disabled) {
-                        setDisabled(false);
-                      }
-                    }}
-                    onMouseOut={() => {
-                      setDisabled(true);
-                    }} // fix eslintjsx-a11y/mouse-events-have-key-events
-                    // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/mouse-events-have-key-events.md
-                    onFocus={() => {}}
-                    onBlur={() => {}} // end
-                  >
-                    Đặt vé thành công!
-                  </div>
-                }
-                visible={visible}
-                onOk={handleOk}
-                onCancel={handleCancel}
-                modalRender={(modal) => (
-                  <Draggable
-                    disabled={disabled}
-                    bounds={bounds}
-                    onStart={(event, uiData) => onStart(event, uiData)}
-                  >
-                    <div ref={draggleRef}>{modal}</div>
-                  </Draggable>
-                )}
-              >
-                <p>Vui lòng kiểm tra lịch sử đặt vé của bạn</p>
-              </Modal>
             </div>
           </div>
         </div>

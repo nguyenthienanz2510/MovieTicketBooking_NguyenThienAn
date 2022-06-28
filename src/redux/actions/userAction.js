@@ -8,9 +8,9 @@ export const setUserInforAction = (user) => {
   };
 };
 
-let handleLoginSuccess = () => {};
+// let handleLoginSuccess = () => {};
 
-let handleLoginFail = () => {};
+// let handleLoginFail = () => {};
 
 export const setUserInforActionService = (
   dataLogin,
