@@ -69,15 +69,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-Lesson 39:
-
 - tao du an, cai dat thu vien: antd, axios, react-redux, react-router-dom, redux, tailwind
 - tao bo cuc du an, lam phan form login + register
-
-lesson 40:
 
 - dung chunksize lam phan rouseu hien thi danh sach phim
 
   "start": "node server.js",
 
--
+- "@fortawesome/fontawesome-svg-core": "^6.1.1",
+  "@fortawesome/free-brands-svg-icons": "^6.0.0",
+  "@fortawesome/free-regular-svg-icons": "^6.0.0",
+  "@fortawesome/free-solid-svg-icons": "^6.1.1",
+  "@fortawesome/react-fontawesome": "^0.1.18",
+
+npm i --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/react-fontawesome

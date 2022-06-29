@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWindows } from "@fortawesome/free-brands-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import UserNav from "./UserNav";
 import "./MobileMenu.scss";
 
@@ -22,7 +22,7 @@ const MobileMenu = () => {
             openMobileModal();
           }}
         >
-          <FontAwesomeIcon className="text-4xl " icon={faWindows} />
+          <FontAwesomeIcon className="text-4xl " icon={faBars} />
         </button>
         <div id="myModal" className="mobileMenuModal">
           <div className="mobileMenuModalContent bg-color-background">
@@ -38,9 +38,6 @@ const MobileMenu = () => {
                 <a className="hover:text-primary" href="#MovieTabs-wrapper">
                   Cụm rạp
                 </a>
-              </li>
-              <li className="mb-4">
-                <a className="hover:text-primary">Tin tức</a>
               </li>
             </ul>
           </div>

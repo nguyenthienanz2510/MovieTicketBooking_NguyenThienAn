@@ -22,7 +22,6 @@ export default function HeaderLayout() {
         <a className="hover:text-primary" href="#MovieTabs-wrapper">
           Cụm rạp
         </a>
-        <a className="hover:text-primary">Tin tức</a>
       </div>
       <MobileMenu />
       <div style={{ minWidth: 200 }} className="hidden md:flex md:justify-end">

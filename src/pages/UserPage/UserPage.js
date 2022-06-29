@@ -40,7 +40,7 @@ export default function UserPage() {
                 <span className="font-medium text-lg text-primary mr-5">
                   PHIM: {item.tenPhim}
                 </span>{" "}
-                <span>{moment(item.ngayDat).format("lll")}</span>
+                <span>Ngày đặt: {moment(item.ngayDat).format("lll")}</span>
               </div>
               <div className="flex mb-8">
                 <div className="mr-3">Vé đã đặt:</div>
@@ -70,7 +70,7 @@ export default function UserPage() {
   return (
     <div className="container mx-auto pt-28 pb-10 min-h-screen text-white">
       <div className="py-5">
-        <h2 className="text-primary text-xl font-medium text-center">
+        <h2 className="text-primary text-2xl font-medium text-center">
           Thông tin tài khoản:
         </h2>
         <div className="flex py-5 text-base justify-center">
@@ -83,7 +83,7 @@ export default function UserPage() {
             <ul className="mx-8">
               <li className="my-2">{userInfor.taiKhoan}</li>
               <li className="my-2">{userInfor.hoTen}</li>
-              <li className="my-2">{userInfor.matKhau}</li>
+              <li className="my-2">{userInfor.email}</li>
             </ul>
           ) : (
             <></>
@@ -91,7 +91,7 @@ export default function UserPage() {
         </div>
       </div>
       <div className="pb-5">
-        <h2 className="text-primary text-xl font-medium text-center">
+        <h2 className="text-primary text-2xl font-medium text-center">
           Lịch sử đặt vé
         </h2>
         <div className="py-5 text-base flex justify-center">
