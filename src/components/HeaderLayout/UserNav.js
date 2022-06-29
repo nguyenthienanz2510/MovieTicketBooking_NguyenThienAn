@@ -21,9 +21,11 @@ export default function UserNav() {
     <div>
       {userInfor ? (
         <div className="pt-6 md:pt-0 md:px-3 md:ml-auto md:block flex justify-between">
-          <span className="font-medium text-xl md:text-lg ">
-            {userInfor.hoTen}
-          </span>
+          <NavLink to={"/user"} className="hover:text-primary">
+            <span className="font-medium text-xl md:text-lg ">
+              {userInfor.hoTen}
+            </span>
+          </NavLink>
           <button
             onClick={handleLogout}
             className="px-3 md:py-2 hover:text-primary transition-all"

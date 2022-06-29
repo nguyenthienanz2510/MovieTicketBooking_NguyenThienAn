@@ -27,6 +27,7 @@ export default function BookingTicketPage() {
   const handleOk = (e) => {
     // console.log(e);
     setVisible(false);
+    window.location.href = "/user";
   };
 
   const handleCancel = (e) => {
