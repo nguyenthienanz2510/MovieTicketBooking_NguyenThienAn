@@ -8,12 +8,7 @@ export default function HeaderLayout() {
     <div className="h-20 w-full flex items-center justify-between shadow-lg fixed top-0 left-0 z-50 bg-black">
       <NavLink to={"/"}>
         <div className="flex">
-          <img
-            width={60}
-            src="./germany_film.png"
-            alt="logo"
-            className="mx-3"
-          />
+          <img width={60} src="/germany_film.png" alt="logo" className="mx-3" />
           <span className="h-16 flex items-center text-xl font-medium hover:text-primary">
             Movie Tickets
           </span>

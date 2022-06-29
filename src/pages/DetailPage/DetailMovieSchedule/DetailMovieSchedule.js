@@ -36,7 +36,7 @@ export default function DetailMovieSchedule() {
           tab={<img src={heThongRap.logo} className="w-10 h-10" />}
           key={index}
         >
-          <Tabs style={{ height: 680 }} tabPosition="left" defaultActiveKey="1">
+          <Tabs style={{ height: 680 }} tabPosition="left" defaultActiveKey="0">
             {heThongRap.cumRapChieu.map((cumRap, index) => {
               return (
                 <TabPane

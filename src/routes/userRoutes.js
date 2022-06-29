@@ -4,6 +4,7 @@ import DetailPage from "../pages/DetailPage/DetailPage";
 import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
+import UserPage from "../pages/UserPage/UserPage";
 
 export const userRoutes = [
   {
@@ -28,6 +29,11 @@ export const userRoutes = [
   {
     path: "/booking/:id",
     component: <Layout Component={BookingTicketPage} />,
+    isUseLayout: true,
+  },
+  {
+    path: "/user",
+    component: <Layout Component={UserPage} />,
     isUseLayout: true,
   },
 ];

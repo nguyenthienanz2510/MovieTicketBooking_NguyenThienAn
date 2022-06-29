@@ -30,6 +30,9 @@ export default function DetailPage() {
         dispatch(handleEndSpinner());
       });
   }, [id]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="pt-20 sm:pt-40 pb-12 space-y-10 bg-color-background min-h-screen">
       <div className="container mx-auto ">
