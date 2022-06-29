@@ -67,7 +67,7 @@ export default function DetailPage() {
             />
           </div>
         </div>
-        <div className="w-full py-20">
+        <div className="w-full py-16">
           {/* <iframe className="mx-auto w-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"></iframe> */}
         </div>
         <div>
