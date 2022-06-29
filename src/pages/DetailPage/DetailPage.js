@@ -14,7 +14,7 @@ export default function DetailPage() {
   let { id } = useParams();
   let dispatch = useDispatch();
   const [movie, setMovie] = useState({});
-  // console.log({ id, movie });
+  console.log({ id, movie });
   useEffect(() => {
     dispatch(handleStartSpinner());
 
@@ -68,7 +68,10 @@ export default function DetailPage() {
           </div>
         </div>
         <div className="w-full py-16">
-          {/* <iframe className="mx-auto w-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"></iframe> */}
+          <iframe
+            src={movie.trailer}
+            className="mx-auto w-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"
+          ></iframe>
         </div>
         <div>
           <DetailMovieSchedule />
