@@ -1,6 +1,7 @@
 import MovieBanner from "./MovieBanner/MovieBanner";
 import MovieCarousel from "./MovieCarousel/MovieCarousel";
 import MovieTabs from "./MovieTabs/MovieTabs";
+import { Element } from "react-scroll";
 
 export default function HomePage() {
   return (
@@ -9,10 +10,14 @@ export default function HomePage() {
         <MovieBanner />
       </div>
       <div id="MovieCarousel-wrapper" className="container mx-auto">
-        <MovieCarousel />
+        <Element name="MovieCarousel" className="element">
+          <MovieCarousel />
+        </Element>
       </div>
       <div id="MovieTabs-wrapper" className="container mx-auto py-20">
-        <MovieTabs />
+        <Element name="MovieTabs" className="element">
+          <MovieTabs />
+        </Element>
       </div>
     </div>
   );

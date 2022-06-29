@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import UserNav from "./UserNav";
+import { Link } from "react-scroll";
 import "./MobileMenu.scss";
 
 const MobileMenu = () => {
@@ -30,14 +31,30 @@ const MobileMenu = () => {
 
             <ul className="text-xl py-10 px-5">
               <li className="mb-4">
-                <a className="hover:text-primary" href="#MovieCarousel-wrapper">
-                  Lịch chiếu
-                </a>
+                <Link
+                  activeClass="active"
+                  className="test1"
+                  to="MovieCarousel"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  <a className="hover:text-primary">Lịch chiếu</a>
+                </Link>
               </li>
               <li className="mb-4">
-                <a className="hover:text-primary" href="#MovieTabs-wrapper">
-                  Cụm rạp
-                </a>
+                <Link
+                  activeClass="active"
+                  className="test1"
+                  to="MovieTabs"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  <a className="hover:text-primary" href="#MovieTabs-wrapper">
+                    Cụm rạp
+                  </a>
+                </Link>
               </li>
             </ul>
           </div>

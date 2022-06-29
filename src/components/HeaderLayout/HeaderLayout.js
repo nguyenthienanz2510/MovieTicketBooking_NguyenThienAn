@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
 import UserNav from "./UserNav";
+import { Link } from "react-scroll";
 
 export default function HeaderLayout() {
   return (
@@ -16,12 +17,26 @@ export default function HeaderLayout() {
       </NavLink>
 
       <div className="space-x-5 text-base hidden md:block">
-        <a className="hover:text-primary" href="#MovieCarousel-wrapper">
-          Lịch chiếu
-        </a>
-        <a className="hover:text-primary" href="#MovieTabs-wrapper">
-          Cụm rạp
-        </a>
+        <Link
+          activeClass="active"
+          className="test1"
+          to="MovieCarousel"
+          spy={true}
+          smooth={true}
+          duration={500}
+        >
+          <a className="hover:text-primary">Lịch chiếu</a>
+        </Link>
+        <Link
+          activeClass="active"
+          className="test1"
+          to="MovieTabs"
+          spy={true}
+          smooth={true}
+          duration={500}
+        >
+          <a className="hover:text-primary">Cụm rạp</a>
+        </Link>
       </div>
       <MobileMenu />
       <div style={{ minWidth: 200 }} className="hidden md:flex md:justify-end">
