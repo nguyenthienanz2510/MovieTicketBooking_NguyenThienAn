@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import { bookingTicketService } from "../../services/bookingTicketService";
 import { movieService } from "../../services/movieService";
 import TicketList from "./TicketList/TicketList";
-import { useDispatch } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 import { Button, Modal } from "antd";
 import Draggable from "react-draggable";
 import {
   handleEndSpinner,
   handleStartSpinner,
 } from "../../redux/actions/spinnerComponentAction";
+import { localStorageService } from "../../services/localStorageService";
 
 export default function BookingTicketPage() {
   let { id } = useParams();
@@ -103,6 +104,7 @@ export default function BookingTicketPage() {
         console.log(err);
         doneSubmitBooking();
         dispatch(handleEndSpinner());
+        alert("Bạn chưa đăng nhập, vui lòng đăng nhập để đặt vé!");
       });
   };
   const doneSubmitBooking = () => {

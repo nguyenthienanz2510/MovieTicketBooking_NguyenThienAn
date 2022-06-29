@@ -10,7 +10,7 @@ export const movieService = {
     });
   },
   getMovieList: () => {
-    return axios.get(`${BASE_URL}/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP02`, {
+    return axios.get(`${BASE_URL}/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP03`, {
       headers: {
         TokenCybersoft: TOKEN_CYBERSOFT,
       },
@@ -18,7 +18,7 @@ export const movieService = {
   },
   getMovieByTheater: () => {
     return axios.get(
-      `${BASE_URL}/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP02`,
+      `${BASE_URL}/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP03`,
       {
         headers: {
           TokenCybersoft: TOKEN_CYBERSOFT,
