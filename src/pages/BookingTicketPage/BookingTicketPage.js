@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { bookingTicketService } from "../../services/bookingTicketService";
 import { movieService } from "../../services/movieService";
 import TicketList from "./TicketList/TicketList";
@@ -19,7 +19,7 @@ export default function BookingTicketPage() {
   const [ticketBooking, setTicketBooking] = useState({});
   let dispatch = useDispatch();
   const draggleRef = useRef(null);
-
+  const history = useHistory();
   const showModal = () => {
     setVisible(true);
   };
@@ -27,7 +27,9 @@ export default function BookingTicketPage() {
   const handleOk = (e) => {
     // console.log(e);
     setVisible(false);
-    window.location.href = "/user";
+    // window.location.href = "/user";
+
+    history.push("/user");
   };
 
   const handleCancel = (e) => {

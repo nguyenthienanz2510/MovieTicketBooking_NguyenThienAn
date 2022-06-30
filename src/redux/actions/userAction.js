@@ -34,3 +34,26 @@ export const setUserInforActionService = (
       });
   };
 };
+
+export const setUserRegisterActionService = (
+  dataRegister,
+  handleSuccess = () => {},
+  handleFail = () => {}
+) => {
+  return (dispatch) => {
+    userService
+      .postRegister(dataRegister)
+      .then((res) => {
+        handleSuccess();
+        console.log("postRegister", res);
+        dispatch({
+          type: SET_USER_INFO,
+          payload: res.data.content,
+        });
+      })
+      .catch((err) => {
+        console.log("postRegister", err);
+        handleFail();
+      });
+  };
+};

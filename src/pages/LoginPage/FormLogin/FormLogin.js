@@ -1,8 +1,6 @@
 import React from "react";
 import { Button, Form, Input, message } from "antd";
-import { userService } from "../../../services/userService";
-import { localStorageService } from "../../../services/localStorageService";
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUserInforActionService } from "../../../redux/actions/userAction";
 
@@ -40,11 +38,11 @@ export default function FormLogin() {
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    console.log("LoginFailed:", errorInfo);
   };
   return (
     <Form
-      className="px-24 w-full"
+      className="px-5 md:px-20 w-full"
       name="basic"
       layout="vertical"
       labelCol={{
@@ -86,11 +84,15 @@ export default function FormLogin() {
         <Input.Password />
       </Form.Item>
       <div className="text-center">
+        <NavLink to="/register">
+          <a className="text-secondary mr-5 hover:underline">Đăng ký</a>
+        </NavLink>
+
         <Button
-          className="text-white bg-primary rounded hover:text-primary hover:bg-white px-5 hover:border-primary"
+          className="hover:text-white hover:bg-primary rounded text-primary bg-white px-5 border-primary hover:border-primary"
           htmlType="submit"
         >
-          Login
+          Đăng nhập
         </Button>
       </div>
     </Form>

@@ -40,9 +40,11 @@ export default function UserNav() {
         </div>
       ) : (
         <div className="px-3">
-          <button className="text-xl md:text-sm ml-1 px-5 py-2 rounded border-2 border-primary hover:text-white hover:bg-primary transition-all">
-            Đăng ký
-          </button>
+          <NavLink to={"/register"}>
+            <button className="text-xl md:text-sm ml-1 px-5 py-2 rounded border-2 border-primary hover:text-white hover:bg-primary transition-all">
+              Đăng ký
+            </button>
+          </NavLink>
           <NavLink to={"/login"}>
             <button className="text-xl md:text-sm ml-1 px-5 py-2 rounded border-2 border-primary hover:text-white hover:bg-primary transition-all">
               Đăng nhập

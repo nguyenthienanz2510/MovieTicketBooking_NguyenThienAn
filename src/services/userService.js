@@ -14,6 +14,16 @@ export const userService = {
       },
     });
   },
+  postRegister: (dataRegister) => {
+    return axios({
+      method: "POST",
+      url: `${BASE_URL}/api/QuanLyNguoiDung/DangKy`,
+      data: dataRegister,
+      headers: {
+        TokenCybersoft: TOKEN_CYBERSOFT,
+      },
+    });
+  },
   // getUserInfor: () => {
   //   return axios.post(
   //     `${BASE_URL}/api/QuanLyNguoiDung/LayThongTinNguoiDung`,
