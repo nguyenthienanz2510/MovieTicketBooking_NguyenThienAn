@@ -25,8 +25,11 @@ export default function HeaderLayout() {
           smooth={true}
           duration={500}
         >
-          <a className="hover:text-primary">Lịch chiếu</a>
+          <NavLink to={"/"}>
+            <a className="hover:text-primary">Lịch chiếu</a>
+          </NavLink>
         </Link>
+
         <Link
           activeClass="active"
           className="test1"
@@ -35,7 +38,9 @@ export default function HeaderLayout() {
           smooth={true}
           duration={500}
         >
-          <a className="hover:text-primary">Cụm rạp</a>
+          <NavLink to={"/"}>
+            <a className="hover:text-primary">Cụm rạp</a>
+          </NavLink>
         </Link>
       </div>
       <MobileMenu />

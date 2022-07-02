@@ -24,13 +24,15 @@ const FormRegister = () => {
   const onFinish = (values) => {
     console.log("Success:", values);
     let onSuccess = () => {
-      message.success("Ký thành thành công, đang chuyển đến trang đăng nhập");
+      message.success(
+        "Đăng ký thành thành công, đang chuyển đến trang đăng nhập"
+      );
       setTimeout(() => {
         history.push("/login");
       }, 1500);
     };
     let onFail = () => {
-      message.warning("Có biến rồi đại vương ơi");
+      // message.warning("Có biến rồi đại vương ơi");
     };
     dispatch(setUserRegisterActionService(values, onSuccess, onFail));
     // userService

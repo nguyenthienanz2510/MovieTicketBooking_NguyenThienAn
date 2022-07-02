@@ -1,3 +1,4 @@
+import { message } from "antd";
 import { userService } from "../../services/userService";
 import { SET_USER_INFO } from "../constants/constants";
 
@@ -52,8 +53,8 @@ export const setUserRegisterActionService = (
         });
       })
       .catch((err) => {
-        console.log("postRegister", err);
-        handleFail();
+        console.log(err.response.data.content);
+        message.warning(err.response.data.content);
       });
   };
 };
